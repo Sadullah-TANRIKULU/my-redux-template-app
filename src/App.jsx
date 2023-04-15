@@ -1,15 +1,16 @@
-import React from "react";
-import AddTodo from "./components/AddTodo";
-import TodoList from "./components/TodoList";
+import React, { useState } from 'react';
+import AddNoteForm from './components/AddNoteForm';
+import NotesList from './components/NotesList';
 
 const App = () => {
+  const [title, setTitle] = useState('');
+  const [note, setNote] = useState('');
+  const [isUpdate, setIsUpdate] = useState(false);
   return (
-    <div className="App font-ffKanit bg-teal-400 flex flex-col justify-center items-center h-screen">
-      <h2 className="appTitle text-2xl text-stone-900">My Tasks</h2>
-      <div className="main flex flex-col justify-center items-center gap-5 ">
-        <AddTodo />
-        <TodoList />
-      </div>
+    <div className='m-1 bg-slate-400' >
+      
+      <AddNoteForm title={title} note={note} setTitle={setTitle} setNote={setNote} isUpdate={isUpdate} setIsUpdate={setIsUpdate}/>
+      <NotesList title={title} note={note} setTitle={setTitle} setNote={setNote} isUpdate={isUpdate} setIsUpdate={setIsUpdate}/>
     </div>
   );
 };

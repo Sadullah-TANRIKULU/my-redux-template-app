@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 root.render(
-  <div>
+  <div className="m-1 bg-slate-300 h-screen" >
     <Provider store={store}>
       <App />
     </Provider>
