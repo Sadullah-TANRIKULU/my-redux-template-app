@@ -54,7 +54,7 @@ const Note = () => {
           <button type="submit" className='focus:outline-none hover:bg-green-700 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2' >Add Note</button>
         </form>
         :
-        <form onSubmit={handleUpdateSubmit} className='flex flex-col items-center bg-fuchsia-700 gap-3 w-full rounded-b-md pt-2' >
+        <form onSubmit={handleUpdateSubmit} className='flex flex-col items-center bg-fuchsia-700 gap-3 w-11/12 rounded-b-md pt-2 fixed top-16' >
           <input type="text" className='rounded-md focus:outline-none indent-2 mt-1 w-11/12 h-10' value={title} onChange={e => setTitle(e.target.value)} />
           <input type="text" className='rounded-md focus:outline-none indent-2 mt-1 w-11/12 h-10' value={note} onChange={e => setNote(e.target.value)} />
           <button type="submit" className='focus:outline-none hover:bg-green-700 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2' >Update Note</button>
