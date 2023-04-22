@@ -1,25 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
 const notesSlice = createSlice({
   name: 'notes',
-  initialState: [],
+  initialState: { notesList : [] },
   reducers: {
     addNote: (state, action) => {
-      const title = action.payload.title;
-      const note = action.payload.note;
-      state.push({ title, note });
+      state.notesList.push(action.payload);
     },
     deleteNote: (state, action) => {
-      const title = action.payload.title;
-      const index = state.findIndex(item => item.title === title);
-      state.splice(index, 1);
+      state.notesList = state.notesList.filter(item => item.id !== action.payload);
     },
     updateNote: (state, action) => {
-      const title = action.payload.title;
-      const note = action.payload.note;
-      const index = state.findIndex(item => item.title === title);
-      console.log(title, note);
-      state.push({ title, note });
+      state.notesList = state.notesList.map(item => {
+        console.log(item.id);
+        console.log(action.payload);
+        if (item.id === action.payload.id) {
+          item.title = action.payload.title;
+          item.note = action.payload.note;
+        }
+        return item;
+      })
     }
   },
 });
